@@ -1,19 +1,15 @@
-package org.bookstore.catalog;
+package com.bookstore.catalog.repository;
 
-import org.bookstore.catalog.model.Book;
-import org.bookstore.catalog.repository.BookRepository;
+import com.bookstore.catalog.model.Book;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.dao.DataIntegrityViolationException;
 
-import javax.validation.ConstraintViolationException;
 import java.math.BigDecimal;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DataJpaTest
 public class BookRepositoryTest {
@@ -38,8 +34,7 @@ public class BookRepositoryTest {
     public void findBookById() {
         book = repository.saveAndFlush(book);
 
-        Optional<Book> optionalBook = repository.findById(book.getId());
-        assertTrue(optionalBook.isPresent());
+        book = repository.findById(book.getId()).get();
     }
 
     @Test
@@ -61,6 +56,7 @@ public class BookRepositoryTest {
             repository.saveAndFlush(book);
         });
     }
+
 
     @Test
     public void saveBookWithoutTitle() {

@@ -1,13 +1,11 @@
-package org.bookstore.catalog;
+package com.bookstore.catalog.repository;
 
-import org.bookstore.catalog.model.Book;
-import org.bookstore.catalog.repository.BookRepository;
+import com.bookstore.catalog.model.Book;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
