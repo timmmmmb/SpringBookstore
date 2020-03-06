@@ -1,4 +1,4 @@
-package com.bookstore.customer.data;
+package com.bookstore.customer.model;
 
 public class CreditCard {
 

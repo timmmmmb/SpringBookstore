@@ -1,8 +1,8 @@
-package com.bookstore.order.data;
+package com.bookstore.order.model;
 
-import com.bookstore.customer.data.Address;
-import com.bookstore.customer.data.CreditCard;
-import com.bookstore.customer.data.Customer;
+import com.bookstore.customer.model.Address;
+import com.bookstore.customer.model.CreditCard;
+import com.bookstore.customer.model.Customer;
 
 import java.math.BigDecimal;
 import java.util.Date;

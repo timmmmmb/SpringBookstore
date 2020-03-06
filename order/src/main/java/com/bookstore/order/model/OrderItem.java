@@ -1,6 +1,4 @@
-package com.bookstore.order.data;
-
-import java.awt.print.Book;
+package com.bookstore.order.model;
 
 public class OrderItem {
 
