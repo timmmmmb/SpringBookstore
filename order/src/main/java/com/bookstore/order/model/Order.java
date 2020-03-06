@@ -4,18 +4,22 @@ import com.bookstore.customer.model.Address;
 import com.bookstore.customer.model.CreditCard;
 import com.bookstore.customer.model.Customer;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
 @Entity
+@Table(name = "salesorder")
 public class Order {
 
     @Id
@@ -25,14 +29,16 @@ public class Order {
     private BigDecimal amount;
     private OrderStatus status;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade= CascadeType.PERSIST)
     private Customer customer;
     @Embedded
     private Address address;
     @Embedded
     private CreditCard creditCard;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "order_id")
     private List<OrderItem> items;
 
     public Order() {

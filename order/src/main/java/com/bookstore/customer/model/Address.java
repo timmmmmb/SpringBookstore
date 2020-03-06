@@ -1,17 +1,12 @@
 package com.bookstore.customer.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import java.io.Serializable;
+import javax.persistence.Embeddable;
 
-@Entity
-@IdClass(Address.AddressKey.class)
+@Embeddable
 public class Address {
 
-	@Id
+
 	private String street;
-	@Id
 	private String city;
 	private String stateProvince;
 	private String postalCode;
@@ -66,10 +61,5 @@ public class Address {
 
 	public void setCountry(String country) {
 		this.country = country;
-	}
-
-	class AddressKey implements Serializable {
-		private String street;
-		private String city;
 	}
 }
