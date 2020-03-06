@@ -1,14 +1,25 @@
 package com.bookstore.customer.model;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Customer {
 
+	@Id
+	@GeneratedValue
 	private Long id;
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String password;
 
+	@Embedded
 	private Address address;
+	@Embedded
 	private CreditCard creditCard;
 
 	public Customer() {

@@ -1,8 +1,18 @@
 package com.bookstore.order.model;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class OrderItem {
 
+    @Id
+    @GeneratedValue
     private Long id;
+    @Embedded
     private BookInfo book;
     private Integer quantity;
 

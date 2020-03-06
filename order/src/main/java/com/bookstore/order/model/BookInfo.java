@@ -1,9 +1,12 @@
 package com.bookstore.order.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 
+@Entity
 public class BookInfo {
-
+	@Id
 	private String isbn;
 	private String title;
 	private String authors;

@@ -1,8 +1,17 @@
 package com.bookstore.customer.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import java.io.Serializable;
+
+@Entity
+@IdClass(CreditCard.CreditCardKey.class)
 public class CreditCard {
 
+	@Id
 	private CreditCardType type;
+	@Id
 	private String number;
 	private Integer expirationMonth;
 	private Integer expirationYear;
@@ -47,5 +56,10 @@ public class CreditCard {
 
 	public void setExpirationYear(Integer expirationYear) {
 		this.expirationYear = expirationYear;
+	}
+
+	class CreditCardKey implements Serializable {
+		private CreditCardType type;
+		private String number;
 	}
 }
