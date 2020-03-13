@@ -5,7 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 public interface BookRepository extends JpaRepository<Book, Integer> {
-    @Query("select b from Book b where b.isbn = :isbn")
+    @Query("SELECT b FROM Book b WHERE b.isbn = :isbn")
     Book findByISBN(String isbn);
-
+    @Query("SELECT b FROM Book b WHERE b.title LIKE CONCAT('%', :title, '%')")
+    Book findByTitle(String title);
 }
